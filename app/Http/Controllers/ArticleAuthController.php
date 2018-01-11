@@ -29,11 +29,16 @@ class ArticleAuthController extends ArticleController{
         ]);
 
         // save article
+        // TODO: Article::create(...)
         $article = new Article;
         $article->title = $request->input('title');
+        $article->slug = str_slug($article->title, "-");
         $article->content = $request->input('content');
-        $article->user = Auth::user();
-        $article.save();
+        // TODO work out how to assign the user object instead of using id
+        $article->user_id = Auth::user()->id;
+        $article->save();
+
+        return redirect()->route('index');
     }
 
     /**

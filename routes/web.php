@@ -14,12 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::post('login', [ 'as' => 'login', 'uses' => 'LoginController@do']);
-Route::get('login', array('as'=>'login', function(){
-    return view('auth.login');
-}));
 
-Route::get('/blog', 'ArticleController@index');
-
-Route::get('/blog/new', 'ArticleAuthController@createForm');
+// BLOG
+Route::get('/blog', 'ArticleController@index')->name('index');
+Route::get('/blog/new', 'ArticleAuthController@createForm')->name('createForm');
 Route::post('/blog/new', 'ArticleAuthController@create')->name('create');
+Route::get('/blog/{article}', function (App\Article $article) {
+    return view('article', ['article' => $article]);
+})->name('article');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

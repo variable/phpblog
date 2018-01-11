@@ -15,6 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
+        # TODO pagination
         $articles = Article::all();
         return view('articles', ["articles" => $articles]);
     }
