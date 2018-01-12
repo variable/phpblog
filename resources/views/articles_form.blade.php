@@ -1,6 +1,6 @@
-@extends('base')
+@extends('layouts.app')
 
-@section('body')
+@section('content')
        <div class="row">
             <div class="col-md-12">
                 {{ Form::open(array('route' => 'create')) }}

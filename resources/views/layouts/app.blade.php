@@ -72,7 +72,13 @@
                 </div>
             </div>
         </nav>
-
+        @if(count($errors) > 0)
+            @foreach($errors as $error)
+                <div class="alert">
+                    {{ $error }}
+                </div>
+            @endforeach
+        @endif
         @yield('content')
     </div>
 
