@@ -41,6 +41,8 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                        <li>{{ link_to_route('index', 'Articles') }}</li>
+                        <li>{{ link_to_route('createForm', 'New Article') }}</li>
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
