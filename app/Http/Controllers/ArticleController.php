@@ -16,7 +16,7 @@ class ArticleController extends Controller
     public function index()
     {
         # TODO pagination
-        $articles = Article::orderBy('created_at', 'desc')->get();
+        $articles = Article::list_articles();
         return view('articles', ["articles" => $articles]);
     }
 

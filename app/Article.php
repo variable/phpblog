@@ -4,6 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Article model
+ * TODO overwrite save method to generate slug instead of from the controller
+ */
+
 class Article extends Model
 {
     public function user()
@@ -16,5 +21,7 @@ class Article extends Model
         return 'slug';
     }
 
-    #TODO overwrite save method to generate slug instead of from the controller
+    public static function list_articles($ordering='desc'){
+        return self::orderBy('created_at', $ordering)->get();
+    }
 }
